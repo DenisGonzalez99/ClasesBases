@@ -68,7 +68,7 @@ public class Departamentos {
 
         Departamento dep = null;
 
-        String sql = "select * from departamentos where dnombre = '" +dnombre+"'";
+        String sql = "select * from departamentos where dnombre = '"+dnombre+"'";
 
         sentencia = conexion.createStatement();
         sentencia.execute(sql);

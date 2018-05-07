@@ -35,21 +35,7 @@ public class ConexionBaseClases {
 
         Statement sentencia = null;
 
-        // departamento.setDept_no(1);
-        // departamento.setDnombre("Denis");
-        // departamento.setLoc("Madrid");
-        /*
-        Empleado empleado = new Empleado();
-        empleado.setEmp_no(1);
-        empleado.setApellido("Perez");
-        empleado.setOficio("Madrid");
-        empleado.setDir(5);
-        
-        empleado.setFecha_alt(Date.valueOf(LocalDate.MAX)); //ARREGLAR
-        empleado.setSalario(1200);
-        empleado.setComision(1);
-        empleado.setDept_no(10);
-         */
+
         Departamentos deps = new Departamentos();
         Empleados emps = new Empleados();
 
@@ -64,11 +50,11 @@ public class ConexionBaseClases {
                 System.out.println("<|-------------------------------------------------------------|>");
                 System.out.println("||A continuacion te voy a dar las opciones que pues escoger    ||");
                 System.out.println("||-------------------------------------------------------------||");
-                System.out.println("||Pulsa (1) si quieres Listar departamentos                    ||");    //FUNCIONA
+                System.out.println("||Pulsa (1) si quieres Listar departamentos                    ||");  //FUNCIONA
                 System.out.println("||Pulsa (2) si quieres Listar empleados                        ||");
                 System.out.println("||Pulsa (3) si quires buscar un empleado por su nombre         ||");
                 System.out.println("||Pulsa (4) si quieres buscar un departamento por su nombre    ||");
-                System.out.println("||Pulsa (5) si quieres crear un empleado                       ||");
+                System.out.println("||Pulsa (5) si quieres crear un empleado                       ||");  //FUNCIONA
                 System.out.println("||Pulsa (6) si quieres crear un departamento                   ||");  //FUNCIONA
                 System.out.println("||Pulsa (7) si quieres borrar un empleado                      ||");  //FUNCIONA
                 System.out.println("||Pulsa (8) si quieres borrar un departamento                  ||");  //FUNCIONA
@@ -79,7 +65,7 @@ public class ConexionBaseClases {
                 opcion = sc.nextInt();
 
                 switch (opcion) {
-                    case 1:                 //
+                    case 1:                 
                         System.out.println("<--------------------------------------------------------------->");
                         System.out.println("<|-------------------------------------------------------------|>");
                         System.out.println("||A continuacion te voy a dar las opciones que pues escoger    ||");        
@@ -124,14 +110,15 @@ public class ConexionBaseClases {
                     case 3:
 
                         System.out.println("Dinos el nombre del departamento");
+                        
 
                         break;
-                    case 4:
+                    case 4:         //FUNCIONA
                         System.out.println("Dinos el nombre del departamento");
-                         dnombre = sc.nextLine();
+                         dnombre = sc.next();
                          
 
-                        deps.Read(dnombre);
+                        departamento = deps.Read(dnombre);
 
                                 System.out.printf("+--------------------------------------------------+ %n");
                                 System.out.printf("|%-10s |%-20s |%-15s |%n", "Dpt_no", "Nom.Dep", "Ciudad");
