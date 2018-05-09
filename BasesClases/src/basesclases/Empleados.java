@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.sql.Date;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -79,13 +79,16 @@ public Empleado Read (String apellido)throws SQLException {
 
         Empleado emp = null;
 
-        String sql = "select oficio from empleados where apellido = '"+apellido +"'";
+        String sql = "select * from empleados where apellido = '"+apellido +"'";
        
             sentencia = conexion.createStatement();
             sentencia.execute(sql);
 
             ResultSet rs = sentencia.getResultSet();  
+        while (rs.next()) {
+            emp = new Empleado(rs.getInt("emp_no"),rs.getString("Apellido"),rs.getString("oficio"),rs.getInt("dir"),rs.getDate("fecha_alt"),rs.getDouble("salario"),rs.getDouble("comision"),rs.getInt("dept_no"));
 
+        }
             rs.close();
 
             sentencia.close();
@@ -97,6 +100,51 @@ public Empleado Read (String apellido)throws SQLException {
     
     
 }
+
+
+public Empleado ReadNum (int emp_no)throws SQLException {
+
+        Empleado emp = null;
+
+        String sql = "select * from empleados where emp_no = "+emp_no;
+       
+            sentencia = conexion.createStatement();
+            sentencia.execute(sql);
+
+            ResultSet rs = sentencia.getResultSet();  
+        while (rs.next()) {
+            emp = new Empleado(rs.getInt("emp_no"),rs.getString("Apellido"),rs.getString("oficio"),rs.getInt("dir"),rs.getDate("fecha_alt"),rs.getDouble("salario"),rs.getDouble("comision"),rs.getInt("dept_no"));
+
+        }
+            rs.close();
+
+            sentencia.close();
+       
+
+        return emp;
+   
+}
+
+    public ArrayList<Empleado> ReadTodos() throws SQLException {
+
+        Empleado emp = null;
+        ArrayList<Empleado> emps = new ArrayList<>();
+
+        String sql = "select * from empleados";
+
+        sentencia = conexion.createStatement();
+        sentencia.execute(sql);
+        ResultSet rs = sentencia.getResultSet();
+        while (rs.next()) {
+            emp = new Empleado(rs.getInt("emp_no"),rs.getString("apellido"),rs.getString("oficio"),rs.getInt("dir"),rs.getDate("fecha_alt"),rs.getDouble("salario"),rs.getDouble("comision"),rs.getInt("dept_no"));
+            emps.add(emp);
+        }
+        rs.close();
+        sentencia.close();
+
+        return emps;
+
+    }
 public void Delete (int emp_no)throws SQLException {
         
         

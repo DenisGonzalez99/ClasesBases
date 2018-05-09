@@ -45,37 +45,38 @@ public class ConexionBaseClases {
             int opcion1;
             while (seguir) {
 
-                System.out.println("<--------------------------------------------------------------->");
-                System.out.println("<|-------------------------------------------------------------|>");
-                System.out.println("||A continuacion te voy a dar las opciones que pues escoger    ||");
-                System.out.println("||-------------------------------------------------------------||");
-                System.out.println("||Pulsa (1) si quieres Listar departamentos                    ||");  //FUNCIONA
-                System.out.println("||Pulsa (2) si quieres Listar empleados                        ||");
-                System.out.println("||Pulsa (3) si quires buscar un empleado por su nombre         ||");
-                System.out.println("||Pulsa (4) si quieres buscar un departamento por su nombre    ||");  //FUNCIONA
-                System.out.println("||Pulsa (5) si quieres crear un empleado                       ||");  //FUNCIONA
-                System.out.println("||Pulsa (6) si quieres crear un departamento                   ||");  //FUNCIONA
-                System.out.println("||Pulsa (7) si quieres borrar un empleado                      ||");  //FUNCIONA
-                System.out.println("||Pulsa (8) si quieres borrar un departamento                  ||");  //FUNCIONA
-                System.out.println("||Pulsa (0) si quieres salir                                   ||");  //FUNCIONA
-                System.out.println("<|-------------------------------------------------------------|>");
-                System.out.println("<--------------------------------------------------------------->");
+                System.out.println("<---------------------------------------------------------------------------------------->");
+                System.out.println("<|--------------------------------------------------------------------------------------|>");
+                System.out.println("||            <<A continuacion te voy a dar las opciones que pues escoger>>             ||");
+                System.out.println("||--------------------------------------------------------------------------------------||");
+                System.out.println("||Pulsa (1)           >>>>>> si quieres Listar departamentos <<<<<<<                    ||");  //FUNCIONA
+                System.out.println("||Pulsa (2)           >>>>>> si quieres Listar empleados <<<<<<<                        ||");  //Funciona
+                System.out.println("||Pulsa (3)           >>>>>> si quieres buscar un empleado por su nombre <<<<<<<        ||");  //FUNCIONA
+                System.out.println("||Pulsa (4)           >>>>>> si quieres buscar un departamento por su nombre <<<<<<<    ||");  //FUNCIONA
+                System.out.println("||Pulsa (5)           >>>>>> si quieres crear un empleado <<<<<<<                       ||");  //FUNCIONA
+                System.out.println("||Pulsa (6)           >>>>>> si quieres crear un departamento <<<<<<<                   ||");  //FUNCIONA
+                System.out.println("||Pulsa (7)           >>>>>> si quieres borrar un empleado <<<<<<<                      ||");  //FUNCIONA
+                System.out.println("||Pulsa (8)           >>>>>> si quieres borrar un departamento <<<<<<<                  ||");  //FUNCIONA
+                System.out.println("||Pulsa (0)           >>>>>> si quieres salir <<<<<<<                                   ||");  //FUNCIONA
+                System.out.println("<|--------------------------------------------------------------------------------------|>");
+                System.out.println("<---------------------------------------------------------------------------------------->");
 
                 opcion = sc.nextInt();
 
                 switch (opcion) {
                     case 1:
-                        System.out.println("<--------------------------------------------------------------->");
-                        System.out.println("<|-------------------------------------------------------------|>");
-                        System.out.println("||A continuacion te voy a dar las opciones que pues escoger    ||");
-                        System.out.println("||-------------------------------------------------------------||");
-                        System.out.println("||Pulsa (1) si quieres listar un departamento                  ||");        //funciona
-                        System.out.println("||Pulsa (2) si quieres Listar tosdos los departamentos         ||");        //funciona
-                        System.out.println("<|-------------------------------------------------------------|>");
-                        System.out.println("<--------------------------------------------------------------->");
+                        System.out.println("<---------------------------------------------------------------------------------------->");
+                        System.out.println("<|--------------------------------------------------------------------------------------|>");
+                        System.out.println("||            <<A continuacion te voy a dar las opciones que pues escoger>>             ||");
+                        System.out.println("||--------------------------------------------------------------------------------------||");
+                        System.out.println("||Pulsa (1)           >>>>>> si quieres listar un departamento<<<<<<<                   ||");        //funciona
+                        System.out.println("||Pulsa (2)           >>>>>> si quieres Listar tosdos los departamentos<<<<<<<          ||");        //funciona
+                    //    System.out.println("||Pulsa (3)           >>>>>> si quieres Salir de este menú<<<<<<<                       ||");        //funciona
+
+                        System.out.println("<|--------------------------------------------------------------------------------------|>");
+                        System.out.println("<---------------------------------------------------------------------------------------->");
                         opcion1 = sc.nextInt();
                         switch (opcion1) {
-
                             case 1:         //FUNCIONA
                                 System.out.println("Introduce el numero del departamento que quieras buscar");
                                 dept_no = sc.nextInt();
@@ -101,10 +102,49 @@ public class ConexionBaseClases {
                                 }
                                 System.out.printf("+--------------------------------------------------+ %n");
                                 break;
+                            
                         }
+                        break;
 
                     case 2:
-                        //
+                        System.out.println("<---------------------------------------------------------------------------------------->");
+                        System.out.println("<|--------------------------------------------------------------------------------------|>");
+                        System.out.println("||            <<A continuacion te voy a dar las opciones que pues escoger>>             ||");
+                        System.out.println("<|--------------------------------------------------------------------------------------|>");
+                        System.out.println("||Pulsa (1)            >>>>>> si quieres listar un empleado<<<<<<<                      ||");//funciona
+                        System.out.println("||Pulsa (2)            >>>>>> si quieres Listar tosdos los empleados<<<<<<<             ||");
+                        System.out.println("<|--------------------------------------------------------------------------------------|>");
+                        System.out.println("<---------------------------------------------------------------------------------------->");
+
+                        opcion1 = sc.nextInt();
+                        switch (opcion1) {
+                            case 1:
+                                System.out.println("Introduce el numero del empleado que quieras buscar");
+                                emp_no = sc.nextInt();
+                                empleado = emps.ReadNum(emp_no);
+                                System.out.printf("+---------------------------------------------------------------------------------------------------------------------------------------+ %n");
+                                System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", "Emp_no", "Apellido", "Oficio", "Dir", "Fecha", "Salario", "Comision", "dept_no");
+                                System.out.printf("+---------------------------------------------------------------------------------------------------------------------------------------+ %n");
+                                System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", empleado.getEmp_no(), empleado.getApellido(), empleado.getOficio(), empleado.getDir(), empleado.getFecha_alt(), empleado.getSalario(), empleado.getComision(), empleado.getDept_no());
+                                System.out.printf("+---------------------------------------------------------------------------------------------------------------------------------------+ %n");
+
+                                break;
+
+                            case 2:
+                                ArrayList<Empleado> empleadosAL = new ArrayList<>();
+                                empleadosAL = emps.ReadTodos();
+                                System.out.printf("+---------------------------------------------------------------------------------------------------------------------------------------+ %n");
+                                System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", "Emp_no", "Apellido", "Oficio", "Dir", "Fecha", "Salario", "Comision", "dept_no");
+                                System.out.printf("+---------------------------------------------------------------------------------------------------------------------------------------+ %n");
+
+                                for (int i = 0; i < empleadosAL.size(); i++) {
+                                    System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", empleadosAL.get(i).getEmp_no(), empleadosAL.get(i).getApellido(), empleadosAL.get(i).getOficio(), empleadosAL.get(i).getDir(), empleadosAL.get(i).getFecha_alt(), empleadosAL.get(i).getSalario(), empleadosAL.get(i).getComision(), empleadosAL.get(i).getDept_no());
+                                }
+                                System.out.printf("+---------------------------------------------------------------------------------------------------------------------------------------+ %n");
+
+                                break;
+                        }
+
                         break;
                     case 3:
 
@@ -113,9 +153,9 @@ public class ConexionBaseClases {
                         empleado = emps.Read(apellido);
 
                         System.out.printf("+----------------------------------------------------------------------------------------------------------------------+ %n");
-                        System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", "Emp_no", "Apellido", "Oficio", "Dir","Fecha","Salario","Comision","dept_no");
+                        System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", "Emp_no", "Apellido", "Oficio", "Dir", "Fecha", "Salario", "Comision", "dept_no");
                         System.out.printf("+----------------------------------------------------------------------------------------------------------------------+ %n");
-                        System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", empleado.getEmp_no(),empleado.getApellido(),empleado.getOficio(),empleado.getDir() ,empleado.getFecha_alt(),empleado.getSalario(),empleado.getComision(),empleado.getDept_no());
+                        System.out.printf("|%-10s |%-20s |%-15s |%-15s |%-15s |%-15s |%-15s |%-15s |%n", empleado.getEmp_no(), empleado.getApellido(), empleado.getOficio(), empleado.getDir(), empleado.getFecha_alt(), empleado.getSalario(), empleado.getComision(), empleado.getDept_no());
                         System.out.printf("+----------------------------------------------------------------------------------------------------------------------+ %n");
 
                         break;
