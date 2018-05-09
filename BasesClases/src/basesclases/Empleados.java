@@ -75,11 +75,11 @@ public String Update (int emp_no, Empleado emp) throws SQLException{
     
     
 }
-public Departamento Read (String apellido)throws SQLException {
+public Empleado Read (String apellido)throws SQLException {
 
-        Departamento emp = null;
+        Empleado emp = null;
 
-        String sql = "select oficio from empleados where apellido ="+apellido;
+        String sql = "select oficio from empleados where apellido = '"+apellido +"'";
        
             sentencia = conexion.createStatement();
             sentencia.execute(sql);
