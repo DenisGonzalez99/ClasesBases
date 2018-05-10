@@ -9,7 +9,7 @@ package basesclases;
  *
  * @author Usuario 1 DAM
  */
-public class Departamento {
+public class Departamento {     //Declaramos las variables del departamento
      public int dept_no;
      public String dnombre;
      protected String loc;
