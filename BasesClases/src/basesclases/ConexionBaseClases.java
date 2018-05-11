@@ -33,9 +33,6 @@ public class ConexionBaseClases {
         Empleado empleado = new Empleado();
         Departamentos deps = new Departamentos();
         Empleados emps = new Empleados();
-        Connection conexion;
-
-        Statement sentencia = null;
 
 
 
@@ -45,7 +42,7 @@ public class ConexionBaseClases {
             boolean seguir = true;
             int opcion1;
             while (seguir) {
-
+                            //Menu 
                 System.out.println("<---------------------------------------------------------------------------------------->");
                 System.out.println("<|--------------------------------------------------------------------------------------|>");
                 System.out.println("<|                                      <<Menú>>                                        |>");
@@ -54,10 +51,10 @@ public class ConexionBaseClases {
                 System.out.println("║Pulsa (2)           >>>>>>Listar empleados <<<<<<<                                     ║");  //Funciona
                 System.out.println("║Pulsa (3)           >>>>>>Buscar empleado por su nombre <<<<<<<                        ║");  //FUNCIONA
                 System.out.println("║Pulsa (4)           >>>>>>buscar departamento por su nombre <<<<<<<                    ║");  //FUNCIONA
-                System.out.println("║Pulsa (5)           >>>>>>Crear un empleado <<<<<<<                                    ║");  //FUNCIONA
-                System.out.println("║Pulsa (6)           >>>>>>Crear un departamento <<<<<<<                                ║");  //FUNCIONA
-                System.out.println("║Pulsa (7)           >>>>>>Borrar un empleado <<<<<<<                                   ║");  //FUNCIONA
-                System.out.println("║Pulsa (8)           >>>>>>Borrar un departamento <<<<<<<                               ║");  //FUNCIONA
+                System.out.println("║Pulsa (5)           >>>>>>Crear empleado <<<<<<<                                       ║");  //FUNCIONA
+                System.out.println("║Pulsa (6)           >>>>>>Crear departamento <<<<<<<                                   ║");  //FUNCIONA
+                System.out.println("║Pulsa (7)           >>>>>>Borrar empleado <<<<<<<                                      ║");  //FUNCIONA
+                System.out.println("║Pulsa (8)           >>>>>>Borrar departamento <<<<<<<                                  ║");  //FUNCIONA
                 System.out.println("║Pulsa (0)           >>>>>>Salir <<<<<<<                                                ║");  //FUNCIONA
                 System.out.println("<|--------------------------------------------------------------------------------------|>");
                 System.out.println("<---------------------------------------------------------------------------------------->");
@@ -70,8 +67,8 @@ public class ConexionBaseClases {
                         System.out.println("<|--------------------------------------------------------------------------------------|>");
                         System.out.println("||                           <<Menú de Listar departamentos>>                           ||");
                         System.out.println("||--------------------------------------------------------------------------------------||");
-                        System.out.println("║║Pulsa (1)           >>>>>>Listar un departamento<<<<<<<                                ║║");        //funciona
-                        System.out.println("║║Pulsa (2)           >>>>>>Listar tosdos los departamentos<<<<<<<                       ║║");        //funciona
+                        System.out.println("║║Pulsa (1)           >>>>>>Listar un departamento<<<<<<<                             ║║");        //funciona
+                        System.out.println("║║Pulsa (2)           >>>>>>Listar todos los departamentos<<<<<<<                    ║║");        //funciona
                         System.out.println("<|--------------------------------------------------------------------------------------|>");
                         System.out.println("<---------------------------------------------------------------------------------------->");
                         opcion1 = sc.nextInt();
@@ -111,7 +108,7 @@ public class ConexionBaseClases {
                         System.out.println("||                             <<Menú de Listar empleados>>                             ||");
                         System.out.println("<|--------------------------------------------------------------------------------------|>");
                         System.out.println("║Pulsa (1)            >>>>>>Listar un empleado<<<<<<<                                   ║");
-                        System.out.println("║Pulsa (2)            >>>>>>Listar tosdos los empleados<<<<<<<                          ║");
+                        System.out.println("║Pulsa (2)            >>>>>>Listar todos los empleados<<<<<<<                          ║");
                         System.out.println("<|--------------------------------------------------------------------------------------|>");
                         System.out.println("<---------------------------------------------------------------------------------------->");
 
@@ -171,16 +168,16 @@ public class ConexionBaseClases {
                                 System.out.printf("|%-10s |%-20s |%-15s |%n", "Dpt_no", "Nom.Dep", "Ciudad");
                                 System.out.printf("+--------------------------------------------------+ %n");
                                 for (int i = 0; i < departamentosAL.size(); i++) {
-                                    System.out.printf("|%10d |%-20s |%-15s |%n", departamentosAL.get(i).getDept_no(), departamentosAL.get(i).getDnombre(), departamentosAL.get(i).getLoc());
+                                    System.out.printf("|%-10d |%-20s |%-15s |%n", departamentosAL.get(i).getDept_no(), departamentosAL.get(i).getDnombre(), departamentosAL.get(i).getLoc());
                                 }
                                 System.out.printf("+--------------------------------------------------+ %n");
                         break;
                     case 5:
                         System.out.println("Vamos a crear un empleado");
-                        System.out.println("Primero inserta el número del empleado");
+                        System.out.print("Primero inserta el número del empleado ---->");
                         emp_no = sc.nextInt();
                         empleado.setEmp_no(emp_no);
-                        System.out.println("Introduce el apellido seguido de una ',' y luego el oficio");
+                        System.out.print("Introduce el apellido seguido de una ',' y luego el oficio---->");
                         String strin = sc.next();
                         String[] partsss = strin.split(",");
                         String partemp11 = partsss[0]; // apellido
@@ -188,30 +185,32 @@ public class ConexionBaseClases {
                         empleado.setApellido(partsss[0]);
                         empleado.setOficio(partsss[1]);
                         System.out.println("Introduce  el dir");
-                        System.out.println("Recuerda que el dir tiene que coincidir con otro empleado");
+                        System.out.print("Recuerda que el dir tiene que coincidir con otro empleado---->");
                         dir = sc.nextInt();
                         empleado.setDir(dir);
                         System.out.println("Introduce su fecha de contratación");
-                        System.out.println("Recuerda que la fecha se tiene que poner asi: yyyy-mm-dd");
-                        String fecha = sc.next();       //cREO UNA VARIABLE NUEVA PARA LA FECHA
+                        System.out.print("Recuerda que la fecha se tiene que poner asi: yyyy-mm-dd---->");
+                        String fecha = sc.next();       //Creo una nueva variable para la fecha
                         fecha_alt = Date.valueOf(fecha);
                         empleado.setFecha_alt(fecha_alt);
-                        System.out.println("Insete  el salario");
+                        System.out.print("Inserte  el salario---->");
                         salario = sc.nextDouble();
                         empleado.setSalario(salario);
-                        System.out.println("Inserte la comisión");
+                        System.out.print("Inserte la comisión---->");
                         comision = sc.nextDouble();
                         empleado.setComision(comision);
-                        System.out.println("Inserte el número del departamento");
+                        System.out.print("Inserte el número del departamento---->");
                         dept_no = sc.nextInt();
                         empleado.setDept_no(dept_no);
 
                         emps.Create(empleado);
 
+                        
+                        System.out.println("Empleado creado con éxito");
                         break;
                     case 6:                     //FUNCIONA
                         System.out.println("Vamos a crear un departamento.");
-                        System.out.println("Primero el numero del departamento, seguido de un espacio y pones el nombre del departamento por ultimo pones una ',' y pones la localización.");
+                        System.out.print("Primero el numero del departamento, seguido de un espacio y pones el nombre del departamento por ultimo pones una ',' y pones la localización---->");
 
                         dept_no = sc.nextInt();
                         departamento.setDept_no(dept_no);
@@ -224,6 +223,7 @@ public class ConexionBaseClases {
                         departamento.setLoc(partss[1]);
 
                         deps.Create(departamento);
+                        System.out.print("Departamento creado con éxito---->");
 
                         break;
 
@@ -231,12 +231,15 @@ public class ConexionBaseClases {
                         System.out.println("Inserte el número del empleado que quieres borrar");
                         emp_no = sc.nextInt();
                         emps.Delete(emp_no);
+                        System.out.println("Empleado borrado con éxito");
+
                         break;
 
                     case 8:                     //FUNCIONA
                         System.out.println("Inserte el número del departamento que quieres borrar");
                         dept_no = sc.nextInt();
                         deps.Delete(dept_no);
+                        System.out.println("Departamento borrado con éxito");
 
                         break;
                     case 0:            //FUNCIONA
@@ -250,6 +253,7 @@ public class ConexionBaseClases {
         } finally {
             try {
                 deps.Close();
+                emps.Close();
             } catch (SQLException ex) {
                 System.out.println("Error al cerrar BBDD: " + ex.getSQLState() + " " + ex.getMessage());
             }

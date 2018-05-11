@@ -23,9 +23,7 @@ public class Departamento {     //Declaramos las variables del departamento
         this.loc = loc;
    
     }
-     
     
-
     public int getDept_no() {
         return dept_no;
     }
