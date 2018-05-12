@@ -13,15 +13,14 @@ import java.util.logging.Logger;
 
 public class Departamentos {
 
-    private Connection conexion;
-    private ArrayList<Departamento> departamentos;
-    Scanner sc = new Scanner(System.in);
+    private Connection conexion;            //Conexión con la bbdd
+    private ArrayList<Departamento> departamentos;      //Array de departamentos
 
-    Statement sentencia = null;
+    Statement sentencia = null;         //Sentencia sql
 
     public Departamentos() {
 
-        try {       //Conexion con la base de datos 
+        try {       //Conexion con la base de datos ejemplo con usuario ejemplo y contraseña ejemplo
 
             conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo", "ejemplo", "ejemplo");
         } catch (SQLException ex) {
@@ -47,7 +46,7 @@ public class Departamentos {
 
     public String Update(int dept_no, Departamento dep) throws SQLException {   //Modificar departamento
 
-        String sql = "UPDATE departamentos set loc = 'cuenca' where dept_no= " + dept_no;
+        String sql = "UPDATE departamentos set loc = 'Cuenca' where dept_no= " + dept_no;
 
         sentencia = conexion.createStatement();
 
@@ -55,7 +54,6 @@ public class Departamentos {
 
         ResultSet rs = sentencia.getResultSet();
 
-        //    rs.close();
         sentencia.close();
 
         return sql;
@@ -64,7 +62,7 @@ public class Departamentos {
 
 
         public ArrayList<Departamento> ReadTodosNombre(String dnombre) throws SQLException {    //Lee  los departamentos con el nombre dado
-//Se crea un arrayList por la posibilidad de que dos departamentos tengan un mismo nombre
+        //Se crea un arrayList por la posibilidad de que dos o mas departamentos tengan un mismo nombre
         Departamento dep = null;
         ArrayList<Departamento> deps = new ArrayList<>();
 
@@ -73,9 +71,9 @@ public class Departamentos {
         sentencia = conexion.createStatement();
         sentencia.execute(sql);
         ResultSet rs = sentencia.getResultSet();
-        while (rs.next()) {
+        while (rs.next()) {     //Mientras el resultado siga va a ir creando un nuevo departamento
             dep = new Departamento(rs.getInt("dept_no"), rs.getString("dnombre"), rs.getString("loc"));
-            deps.add(dep);
+            deps.add(dep);      //Añada al arrayList un departamento
         }
         rs.close();
         sentencia.close();
@@ -96,7 +94,6 @@ public class Departamentos {
         ResultSet rs = sentencia.getResultSet();
         while (rs.next()) {
             dep = new Departamento(rs.getInt("dept_no"), rs.getString("dnombre"), rs.getString("loc"));
-
         }
 
         sentencia.close();
@@ -115,9 +112,9 @@ public class Departamentos {
         sentencia = conexion.createStatement();
         sentencia.execute(sql);
         ResultSet rs = sentencia.getResultSet();
-        while (rs.next()) {
+        while (rs.next()) {     //Mientras el resultado siga va a ir creando un nuevo departamento
             dep = new Departamento(rs.getInt("dept_no"), rs.getString("dnombre"), rs.getString("loc"));
-            deps.add(dep);
+            deps.add(dep);      //Añada al arrayList un departamento
         }
         rs.close();
         sentencia.close();
@@ -135,10 +132,8 @@ public class Departamentos {
 
         ResultSet rs = sentencia.getResultSet();
 
-        //  rs.close();
         sentencia.close();
 
-        // return sql;
     }
 
     public void Close() throws SQLException {   //Cierra la conexion

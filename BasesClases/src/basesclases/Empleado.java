@@ -3,7 +3,7 @@ package basesclases;
 import java.sql.Date;
 
 
-public class Empleado {
+public class Empleado {     //Variables del empleadog
     
     public int emp_no;
     protected String apellido;
@@ -27,9 +27,6 @@ public class Empleado {
         this.comision = comision;
         this.dept_no = dept_no;
     }
-
-    
-
     public int getEmp_no() {
         return emp_no;
     }
@@ -69,9 +66,7 @@ public class Empleado {
     public void setFecha_alt(Date fecha_alt) {
         this.fecha_alt = fecha_alt;
     }
-
-
-
+    
     public double getSalario() {
         return salario;
     }
@@ -94,8 +89,5 @@ public class Empleado {
 
     public void setDept_no(int dept_no) {
         this.dept_no = dept_no;
-    }
-
-  
-    
+    }  
 }

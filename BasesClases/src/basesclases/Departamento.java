@@ -22,10 +22,7 @@ public class Departamento {     //Declaramos las variables del departamento
         this.dnombre = dnombre;
         this.loc = loc;
    
-    }
-     
-    
-
+    } 
     public int getDept_no() {
         return dept_no;
     }
@@ -48,10 +45,5 @@ public class Departamento {     //Declaramos las variables del departamento
 
     public void setLoc(String loc) {
         this.loc = loc;
-    }
-
-
-
-     
-    
+    }    
 }
